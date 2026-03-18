@@ -1,0 +1,26 @@
+services:
+  jobmanager:
+    image: flink:1.20.1-scala_2.12-java17
+    command: jobmanager
+    ports:
+      - "8081:8081"
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+
+  taskmanager-1:
+    image: flink:1.20.1-scala_2.12-java17
+    command: taskmanager
+    depends_on:
+      - jobmanager
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+      - TASK_MANAGER_NUMBER_OF_TASK_SLOTS=2
+
+  taskmanager-2:
+    image: flink:1.20.1-scala_2.12-java17
+    command: taskmanager
+    depends_on:
+      - jobmanager
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+      - TASK_MANAGER_NUMBER_OF_TASK_SLOTS=2

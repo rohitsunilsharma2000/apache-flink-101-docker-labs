@@ -62,6 +62,8 @@ By the end of this module, you should be able to:
 
 ## Module 2: Flink Runtime + Web UI Monitoring
 
+Hands-on guide: [module-02-runtime-parallelism-web-ui/README.md](./module-02-runtime-parallelism-web-ui/README.md)
+
 ### What you will learn
 
 * How Flink runtime works internally
